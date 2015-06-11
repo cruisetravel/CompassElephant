@@ -109,7 +109,7 @@ class CommandCaller
      */
     private function execute($cmd)
     {
-        $process = new Process(escapeshellcmd($cmd), $this->projectPath);
+        $process = new Process(escapeshellcmd($cmd), $this->projectPath, null, null, 300);
         $process->run();
         if (!$process->isSuccessful()) {
             throw new CompassException($process->getErrorOutput());
